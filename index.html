@@ -6,12 +6,43 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="gallery">
-            <div>
-                <span><img src=""></span>
-                <span><img src=""></span>
-                <span><img src=""></span>
+        <div class="gallery-wrap">
+            <img src="images/back.png" id="backBtn">
+            <div class="gallery">
+                <div>
+                    <span><img src="images/Full_Stack_Web_and_Mobile_Development_Certificate.png"></span>
+                    <span><img src="images/Front_End_Web_and_Mobile_Development_Certificate.png"></span>
+                    <span><img src="images/React_Course_Certificate.png"></span>
+                </div>
+                <div>
+                    <span><img src="images/NodeJS_Express_and_MongoDB_Course_Certificate.png"></span>
+                    <span><img src="images/Bootstrap_Course_Certificate.png"></span>
+                    <span><img src="images/React_Native_Course_Certificate.png"></span>
+                </div>
             </div>
+            <img src="images/next.png" id="nextBtn">
         </div>
+
+        <script>
+            let scrollContainer = document.querySelector(".gallery");
+            let backBtn = document.getElementById("backBtn");
+            let nextBtn = document.getElementById("nextBtn");
+
+            scrollContainer.addEventListener("wheel", (evt) => {
+                evt.preventDefault();
+                scrollContainer.scrollLeft += evt.deltaY;
+                scrollContainer.style.scrollBehavior = "auto";
+            });
+
+            nextBtn.addEventListener("click", () => {
+                scrollContainer.style.scrollBehavior = "smooth";
+                scrollContainer.scrollLeft += 900;
+            })
+
+            backBtn.addEventListener("click", () => {
+                scrollContainer.style.scrollBehavior = "smooth";
+                scrollContainer.scrollLeft -= 900;
+            })
+        </script>
     </body>
 </html>
